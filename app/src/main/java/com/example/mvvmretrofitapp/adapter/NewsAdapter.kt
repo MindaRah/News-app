@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mvvmretrofitapp.R
 import com.example.mvvmretrofitapp.model.Data
+
 //NewsViewHolder
 class NewsAdapter: RecyclerView.Adapter<NewsViewHolder>(){
 
@@ -19,9 +20,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsViewHolder>(){
         this.userList=userList
         notifyDataSetChanged()
     }
-
-    //var on
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         LayoutInflater.from(parent.context).inflate(R.layout.lay_news,parent,false).apply {
@@ -42,8 +40,7 @@ class NewsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
     val rootView = itemView
     private val authorName: TextView = itemView.findViewById(R.id.author_view)
-   // private val contentName : TextView = itemView.findViewById(R.id.content_view)
-    private val date: TextView = itemView.findViewById(R.id.country_view)
+    private val date: TextView = itemView.findViewById(R.id.date_view)
     private val title: TextView = itemView.findViewById(R.id.title_view)
     private val image: ImageView = itemView.findViewById(R.id.user_image)
     private val time: TextView = itemView.findViewById(R.id.time_view)
@@ -52,9 +49,6 @@ class NewsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         if (currentData != null) {
             authorName.text = "Author : " + currentData.author
         }
-        // if (currentData != null) {
-        //    contentName.text = "Content :  " + currentData.content
-        //}
         if (currentData != null) {
             date.text = "Date " + currentData.date
         }

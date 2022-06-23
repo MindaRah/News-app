@@ -24,14 +24,13 @@ class NewsFragment: Fragment() {
         FragmentNewsBinding.inflate(layoutInflater)
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         newsAdapter= NewsAdapter()
-        binding.songRecycler.layoutManager = LinearLayoutManager(requireContext())
-        binding.songRecycler.adapter = newsAdapter
+        binding.newsRecycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.newsRecycler.adapter = newsAdapter
 
         viewModel.news.observe(viewLifecycleOwner) { dataState ->
             when (dataState) {
@@ -49,7 +48,6 @@ class NewsFragment: Fragment() {
                         requireContext(),
                         dataState.error.message,
                         Toast.LENGTH_LONG).show()
-                    //Log.d(TAG, "onCreateView: "+dataState.error.message)
                     binding.swipe.isRefreshing = false
                 }
             }

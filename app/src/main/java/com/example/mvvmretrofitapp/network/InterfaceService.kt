@@ -7,7 +7,6 @@ import retrofit2.http.Query
 
 interface InterfaceService {
 
-
     @GET(NEWS)
     suspend fun getNews(@Query("category") category: String = "science"): Response<News>
 
